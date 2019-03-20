@@ -1,0 +1,30 @@
+<h1>
+  Countries
+  </h1>
+
+  <form (ngSubmit)="postCountry()">
+    <label>country name:
+        <input name="country_name" placeholder="country name" [(ngModel)]="post_country_name">
+        <input name="country_code" placeholder="country code" [(ngModel)]="post_country_code">
+        <button type="submit" class="btn btn-success" >Submit</button>
+    </label> 
+  </form>
+  <div *ngIf="countriesData">
+
+  <table  style="width:100%">
+    <tr>
+        <th>Country Id</th>
+        <th>Country Code</th>
+        <th>Country Name</th>
+    </tr>
+    
+    <tr *ngFor="let c of countriesData.data">
+            <td>{{c.country_id}}</td>
+            <td>{{c.country_code}}</td>
+            <td>{{c.country_name}}</td>
+            <td><button (click)="deleteCountry(c.country_id)">Delete</button></td>
+
+    </tr>
+  </table>
+  </div>
+ 
